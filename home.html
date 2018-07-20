@@ -7,10 +7,12 @@
   <title>Parallax Template - Materialize</title>
 
   <!-- CSS  -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 </head>
 <body>
     <script src ="js/navbar.js"></script>
@@ -24,9 +26,9 @@
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h1 class="header center teal-text text-lighten-2">Parallax Template</h1>
+        <h1 class="header center teal-text text-lighten-2">Share your Music</h1>
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <h5 class="header col s12 light">A modern media sharing for all of us</h5>
         </div>
         <div class="row center">
           <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
@@ -56,26 +58,9 @@
       </nav>
 
       
-      <table class="centered">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Artist</th>
-            <th>Category</th>
-          </tr>
-          <tbody>
-            <tr v-for="music in musics">  
-              <td>
-                <!-- <list-music v-for="music in musics" v-bind:music= "music" ></list-music>   -->
-                {{music.title}}
-              </td>
-              <td>{{music.artist}}</td>
-              <td>{{music.category}}</td>
-            </tr>
-        </tbody>
-        </thead>
-        </table>
-        
+     
+      <list-music :musics="musics"></list-music>
+      
      
 
     </div>
