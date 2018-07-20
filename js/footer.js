@@ -4,7 +4,9 @@ Vue.component('footers', {
         count: 0
       }
     },
-    template: `<div class="container">
+    template: `
+    <div>
+    <div class="container">
     <div class="row">
       <div class="col l6 s12">
         <h5 class="white-text">Company Bio</h5>
@@ -13,21 +15,21 @@ Vue.component('footers', {
 
       </div>
       <div class="col l3 s12">
-        <h5 class="white-text">Settings</h5>
+        <h5 class="white-text"></h5>
         <ul>
-          <li><a class="white-text" href="#!">Link 1</a></li>
-          <li><a class="white-text" href="#!">Link 2</a></li>
-          <li><a class="white-text" href="#!">Link 3</a></li>
-          <li><a class="white-text" href="#!">Link 4</a></li>
+          <li><a class="white-text" href="#!"></a></li>
+          <li><a class="white-text" href="#!"></a></li>
+          <li><a class="white-text" href="#!"></a></li>
+          <li><a class="white-text" href="#!"></a></li>
         </ul>
       </div>
       <div class="col l3 s12">
         <h5 class="white-text">Connect</h5>
         <ul>
-          <li><a class="white-text" href="#!">Link 1</a></li>
-          <li><a class="white-text" href="#!">Link 2</a></li>
-          <li><a class="white-text" href="#!">Link 3</a></li>
-          <li><a class="white-text" href="#!">Link 4</a></li>
+          <li><a class="white-text" href="#!"> <i class="material-icons">call</i>    081297111417</a></li>
+          <li><a class="white-text" href="#!"><i class="fab fa-twitter" size="20px"></i>    @shantidyah2</a></li>
+          <li><a class="white-text" href="#!"><i class="fab fa-facebook-f"></i>             shantidyah</a></li>
+          <li><a class="white-text" href="#!"><i class="fas fa-trash"></i></a></li>
         </ul>
       </div>
     </div>
@@ -36,5 +38,6 @@ Vue.component('footers', {
     <div class="container">
     Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
     </div>
+  </div>
   </div>`
   })

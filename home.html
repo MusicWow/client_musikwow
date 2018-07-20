@@ -1,64 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <style>
-      .container {}
 
-      #index-banner {
-        margin-bottom: 100px
-      }
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Parallax Template - Materialize</title>
 
-      table {
-        margin-bottom: 100px
-      }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <!-- CSS  -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+</head>
+<body>
+    <script src ="js/navbar.js"></script>
+    <script src="table-music.js"></script>
+    <script src ="js/footer.js"></script>
+    <div id ="app">
+    <navbar></navbar>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Music WOW</title>
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2">Share your Music</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">A modern media sharing for all of us</h5>
+        </div>
+        <div class="row center">
+          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+        </div>
+        <br><br>
 
-    <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  </head>
-
-  <body>
-    <nav class="white" role="navigation">
-      <div class="nav-wrapper container">
-        <a id="logo-container" href="#" class="brand-logo">Logo</a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="#">Navbar Link</a></li>
-        </ul>
-
-        <ul id="nav-mobile" class="sidenav">
-          <li><a href="#">Navbar Link</a></li>
-        </ul>
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      </div>
-    </nav>
-
-    <div id="index-banner" class="parallax-container">
-      <div class="section no-pad-bot">
-        <div class="container">
-          <br><br>
-          <h1 class="header center teal-text text-lighten-2">Music WOW</h1>
-          <div class="row center">
-            <h5 class="header col s12 light">Playing Music with WOW WOW</h5>
-          </div>
-          <div class="row center">
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
-          </div>
-          <br><br>
-
+  
         </div>
       </div>
       <div class="parallax"><img src="/img/background1.jpg" alt="Unsplashed background img 1"></div>
@@ -81,27 +59,16 @@
             </tr>
           </thead>
 
-          <tbody>
-            <tr>
-              <td>Alvin</td>
-              <td>Eclair</td>
-              <td>$0.87</td>
-            </tr>
-            <tr>
-              <td>Alan</td>
-              <td>Jellybean</td>
-              <td>$3.76</td>
-            </tr>
-            <tr>
-              <td>Jonathan</td>
-              <td>Lollipop</td>
 
-              <td>
-                <a data-show-count="false" href="http://twitter.com/home?status='http://xxx.mp3'">Tweet this</a>
-                <!-- <a href="https://twitter.com/share?ref_src='http://sss.com'" class="twitter-share-button" data-show-count="false">Tweet</a> -->
-              </td>
-            </tr>
-          </tbody>
+ 
+
+      
+     
+      <list-music :musics="musics"></list-music>
+      
+     
+
+       
         </table>
       </template>
 
@@ -116,6 +83,7 @@
               <th>Share</th>
             </tr>
           </thead>
+
 
           <tbody>
             <tr v-for="filterSong in filterSongs">
