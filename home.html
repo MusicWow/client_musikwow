@@ -1,194 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Parallax Template - Materialize</title>
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Parallax Template - Materialize</title>
+        <!-- CSS -->
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet">
+        <link
+            href="css/materialize.css"
+            type="text/css"
+            rel="stylesheet"
+            media="screen,projection"/>
+        <link
+            href="css/style.css"
+            type="text/css"
+            rel="stylesheet"
+            media="screen,projection"/>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+            integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+            crossorigin="anonymous">
+    </head>
+    <body>
+        <script src="js/navbar.js"></script>
+        <script src="table-music.js"></script>
+        <script src="js/footer.js"></script>
+        <div id="app">
+            <navbar></navbar>
 
-  <!-- CSS  -->
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-</head>
-<body>
-    <script src ="js/navbar.js"></script>
-    <script src="table-music.js"></script>
-    <script src ="js/footer.js"></script>
-    <div id ="app">
-    <navbar></navbar>
+            <div id="index-banner" class="parallax-container">
+                <div class="section no-pad-bot">
+                    <div class="container">
+                        <br><br>
+                        <h1 class="header center teal-text text-lighten-2">Share your Music</h1>
+                        <div class="row center">
+                            <h5 class="header col s12 light">A modern media sharing for all of us</h5>
+                        </div>
+                        <div class="row center">
+                            <a
+                                href="http://materializecss.com/getting-started.html"
+                                id="download-button"
+                                class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+                        </div>
+                        <br><br>
 
-
-  <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class="header center teal-text text-lighten-2">Share your Music</h1>
-        <div class="row center">
-          <h5 class="header col s12 light">A modern media sharing for all of us</h5>
-        </div>
-        <div class="row center">
-          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
-        </div>
-        <br><br>
-
-  
-        </div>
-      </div>
-      <div class="parallax"><img src="/img/background1.jpg" alt="Unsplashed background img 1"></div>
-    </div>
-
-
-    <div class="container">
-      <div id="app">
-
-        <input v-model="values" name="values" id="values" type="text">
-        <button v-on:click="findMusic"> SEARCH </button>
-
-        <template v-if="seen">
-        <table>
-          <thead>
-            <tr>
-              <th>Song name</th>
-              <th>author</th>
-              <th>genre</th>
-            </tr>
-          </thead>
-
-
- 
-
-      
-     
-      <list-music :musics="musics"></list-music>
-      
-     
-
-       
-        </table>
-      </template>
-
-        <template v-else>
-        <table>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Author</th>
-              <th>Genre</th>
-              <th>Song</th>
-              <th>Share</th>
-            </tr>
-          </thead>
-
-
-          <tbody>
-            <tr v-for="filterSong in filterSongs">
-              <td>{{filterSong.title}}</td>
-              <td>{{filterSong.singer}}</td>
-              <td>{{filterSong.genre}}</td>
-              <td><audio controls>
-  <source v-bind:src="filterSong.url" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
- </td>
-              <td><a data-show-count="false" href="http://twitter.com/home?status='http://xxx.mp3'">Tweet this</a></td>
-            </tr>
-          </tbody>
-
-        </table>
-      </template>
-
-
-
-      </div>
-
-
-      <div class="parallax-container valign-wrapper">
-        <div class="section no-pad-bot">
-          <div class="container">
-            <div class="row center">
-              <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+                    </div>
+                </div>
+                <div class="parallax"><img src="/img/background1.jpg" alt="Unsplashed background img 1"></div>
             </div>
-          </div>
-        </div>
-        <div class="parallax"><img src="/img/background2.jpg" alt="Unsplashed background img 2"></div>
-      </div>
 
-      <div class="container">
-        <div class="section">
+            <div class="container">
 
-          <div class="row">
-            <div class="col s12 center">
-              data example
+                <input v-model="values" name="values" id="values" type="text">
+                <button v-on:click="findMusic">
+                    SEARCH
+                </button>
+
+                <!-- <list-music :musics="musics"></list-music> -->
+                <template v-if="seen">
+                    <!-- <table> <thead> <tr> <th>Song name</th> <th>author</th> <th>genre</th>
+                    </tr> </thead> </table> -->
+                </template>
+
+                <template v-else="v-else">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Genre</th>
+                                <th>Song</th>
+                                <th>Share</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr v-for="filterSong in filterSongs">
+                                <td>{{filterSong.title}}</td>
+                                <td>{{filterSong.singer}}</td>
+                                <td>{{filterSong.genre}}</td>
+                                <td>
+                                    <audio controls="controls">
+                                        <source v-bind:src="filterSong.url" type="audio/mpeg">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <a
+                                        data-show-count="false"
+                                        href="http://twitter.com/home?status='http://xxx.mp3'">Tweet this</a>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </template>
+
             </div>
-          </div>
 
-        </div>
-      </div>
-
-
-      <div class="parallax-container valign-wrapper">
-        <div class="section no-pad-bot">
-          <div class="container">
-            <div class="row center">
-              <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+            <div class="parallax-container valign-wrapper">
+                <div class="section no-pad-bot">
+                    <div class="container">
+                        <div class="row center">
+                            <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="parallax"><img src="/img/background2.jpg" alt="Unsplashed background img 2"></div>
             </div>
-          </div>
+
+            <div class="container">
+                <div class="section">
+
+                    <div class="row">
+                        <div class="col s12 center">
+                            data example
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="parallax-container valign-wrapper">
+                <div class="section no-pad-bot">
+                    <div class="container">
+                        <div class="row center">
+                            <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="parallax"><img src="/img/background3.jpg" alt="Unsplashed background img 3"></div>
+            </div>
+
         </div>
-        <div class="parallax"><img src="/img/background3.jpg" alt="Unsplashed background img 3"></div>
-      </div>
 
-    </div>
+        <footer class="page-footer teal">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Company Bio</h5>
+                        <p class="grey-text text-lighten-4">We are a team of college students working on
+                            this project like it's our full time job. Any amount would help support and
+                            continue development on this project and is greatly appreciated.</p>
 
-    <footer class="page-footer teal">
-      <div class="container">
-        <div class="row">
-          <div class="col l6 s12">
-            <h5 class="white-text">Company Bio</h5>
-            <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text">Settings</h5>
+                        <ul>
+                            <li>
+                                <a class="white-text" href="#!">Link 1</a>
+                            </li>
+                            <li>
+                                <a class="white-text" href="#!">Link 2</a>
+                            </li>
+                            <li>
+                                <a class="white-text" href="#!">Link 3</a>
+                            </li>
+                            <li>
+                                <a class="white-text" href="#!">Link 4</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text">Connect</h5>
+                        <ul>
+                            <li>
+                                <a class="white-text" href="#!">Link 1</a>
+                            </li>
+                            <li>
+                                <a class="white-text" href="#!">Link 2</a>
+                            </li>
+                            <li>
+                                <a class="white-text" href="#!">Link 3</a>
+                            </li>
+                            <li>
+                                <a class="white-text" href="#!">Link 4</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    Made by
+                    <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+                </div>
+            </div>
+        </footer>
 
+        <!-- <script src="./js/searchdb.js"></script> -->
 
-          </div>
-          <div class="col l3 s12">
-            <h5 class="white-text">Settings</h5>
-            <ul>
-              <li><a class="white-text" href="#!">Link 1</a></li>
-              <li><a class="white-text" href="#!">Link 2</a></li>
-              <li><a class="white-text" href="#!">Link 3</a></li>
-              <li><a class="white-text" href="#!">Link 4</a></li>
-            </ul>
-          </div>
-          <div class="col l3 s12">
-            <h5 class="white-text">Connect</h5>
-            <ul>
-              <li><a class="white-text" href="#!">Link 1</a></li>
-              <li><a class="white-text" href="#!">Link 2</a></li>
-              <li><a class="white-text" href="#!">Link 3</a></li>
-              <li><a class="white-text" href="#!">Link 4</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="footer-copyright">
-        <div class="container">
-          Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
-        </div>
-      </div>
-    </footer>
+        <!-- Scripts-->
+        <script src="./js/script.js"></script>
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
 
-
-    <!-- <script src="./js/searchdb.js"></script> -->
-
-    <!--  Scripts-->
-    <script src="./js/script.js"></script>
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/materialize.js"></script>
-    <script src="js/init.js"></script>
-
-  </body>
+    </body>
 
 </html>

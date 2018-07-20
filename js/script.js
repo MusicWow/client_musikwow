@@ -12,7 +12,6 @@ new Vue({
         filterSongs: 'ali'
         
     },
-
     methods :{
         getData : function(){
             axios.get('http://localhost:3000/musics/showallsong')
@@ -80,5 +79,8 @@ new Vue({
     },
     created(){
         this.getData()
+    }
+}
+})
 
-
+    
