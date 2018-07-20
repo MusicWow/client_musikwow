@@ -1,11 +1,15 @@
 new Vue({
+
     el : '#app',
     data : {
         musics : [],
         song : null,
         title :'',
         genre : '',
-        singer : ''
+        singer : '',
+        values: "",
+        seen: true,
+        filterSongs: 'ali'
         
     },
 
@@ -58,10 +62,23 @@ new Vue({
         changeFile : function(data){
             console.log(data)
             this.song = data.target.files[0]
-        }
+        },
+         findMusic: function () {
+      this.seen = false
+      const self = this
+      axios.post('http://localhost:3000/musics/search', {
+          value: this.values
+        })
+        .then(function (songs) {
+
+          self.filterSongs = songs.data
+        })
+        .catch(function (err) {
+          console.log(err)
+        })
+
     },
     created(){
         this.getData()
 
-    }
-})
+
