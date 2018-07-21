@@ -1,21 +1,41 @@
 new Vue({
+
     el : '#app',
     data : {
         musics : [],
         song : null,
         title :'',
         genre : '',
-        singer : ''
+        singer : '',
+        values: "",
+        seen: true,
+        filterSongs: 'ali'
         
     },
-
     methods :{
+        findMusic: function () {
+            this.seen = false
+            const self = this
+            axios.post('http://localhost:3000/musics/search', {
+                value: this.values
+              })
+              .then(function (songs) {
+                self.filterSongs = songs.data
+              })
+              .catch(function (err) {
+                console.log(err)
+              })
+          },
         getData : function(){
+            console.log(this.musics)
             axios.get('http://localhost:3000/musics/showallsong')
-            .then((data)=>{
-                // console.log(data.data)
+            .then(data=>{
+                console.log(data)
                 this.musics =data.data
                 console.log(this.musics)
+            })
+            .catch(err => {
+                console.log(err)
             })
         },
         submitFile: function(){
@@ -58,10 +78,27 @@ new Vue({
         changeFile : function(data){
             console.log(data)
             this.song = data.target.files[0]
-        }
-    },
-    created(){
-        this.getData()
+        },
+         findMusic: function () {
+      this.seen = false
+      const self = this
+      axios.post('http://localhost:3000/musics/search', {
+          value: this.values
+        })
+        .then(function (songs) {
 
-    }
+          self.filterSongs = songs.data
+        })
+        .catch(function (err) {
+          console.log(err)
+        })
+
+    },
+   
+},
+created(){
+    this.getData()
+}
 })
+
+    

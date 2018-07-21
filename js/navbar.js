@@ -10,7 +10,7 @@ Vue.component('navbar',{
   <div class="nav-wrapper container">
     <a id="logo-container" href="http://127.0.0.1:8080/home.html" class="brand-logo">Music WoW</a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="#">Navbar Link</a></li>
+      <li><a href="http://127.0.0.1:8080/search.html">Youtube</a></li>
       <li><a href="http://127.0.0.1:8080/form-upload.html">Upload</a></li>
       <li><a href="#" data-target="comp-menu3" class="dropdown-button">Account</a></li>
     </ul>

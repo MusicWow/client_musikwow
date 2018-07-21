@@ -45,22 +45,36 @@
     <div class="section">
 
       <!--   Icon Section   -->
+      
       <nav>
         <div class="nav-wrapper">
           <form>
             <div class="input-field">
               <input id="search" type="search" required>
+              
               <label class="label-icon" for="search"><i class="material-icons">search</i></label>
               <i class="material-icons">close</i>
+              
             </div>
           </form>
         </div>
       </nav>
+      
+      
+      <input v-model="values" name="values" id="values" type="text">
+        <button v-on:click="findMusic"> SEARCH </button>
+        
+        
+        <template v-if="seen">
+            <list-music :musics="musics"></list-music>
+         
+        </template>
+  
+        <template v-else>
+          <list-music :musics="filterSongs"></list-music>
+        </template>
 
-      
-     
-      <list-music :musics="musics"></list-music>
-      
+
      
 
     </div>

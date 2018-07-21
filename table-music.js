@@ -23,7 +23,12 @@ Vue.component('list-music',{
                     </td>
                     <td>{{music.singer}} </td>
                     <td>{{music.genre}}</td>
-                    <td><i class="fab fa-twitter"></i></td>
+                    <td>
+                    <a data-show-count="false" v-bind:href="'http://twitter.com/home?status='+music.url"><i class="fab fa-twitter"></a>
+                    
+                    </i>
+                    
+                    </td>
                 </tr>
             </tbody>
         </table>
